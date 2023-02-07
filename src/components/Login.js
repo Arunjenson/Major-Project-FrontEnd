@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 const Login = () => {
     const [loginData, setLoginData] = useState({
-        email: '',
+        phone: '',
         password: ''
     });
 
@@ -16,15 +16,19 @@ const Login = () => {
     const handleLoginSubmit = event => {
         event.preventDefault();
         console.log(loginData);
+        setLoginData({
+            phone: '',
+            password: ''
+        })
     };
 
     return (
         <form className='login-form' onSubmit={handleLoginSubmit}>
             <input
-                type='email'
-                placeholder='Email'
-                name='email'
-                value={loginData.email}
+                type='number'
+                placeholder='Enter your Phone Number'
+                name='phone'
+                value={loginData.phone}
                 onChange={handleLoginInput}
                 required
             />

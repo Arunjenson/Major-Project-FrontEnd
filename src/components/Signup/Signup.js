@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import './Signup.css'
 const Signup = () => {
     const [signupData, setSignupData] = useState({
-        username: '',
+        name: '',
+        phone: '',
         email: '',
         password: ''
     });
@@ -23,15 +24,23 @@ const Signup = () => {
         <form className='signup-form' onSubmit={handleSignupSubmit}>
             <input
                 type='text'
-                placeholder='username'
-                name='username'
-                value={signupData.username}
+                placeholder='Enter your name'
+                name='name'
+                value={signupData.name}
+                onChange={handleSignupInput}
+                required
+            />
+            <input
+                type='text'
+                placeholder='Enter your Phone Number'
+                name='phone'
+                value={signupData.phone}
                 onChange={handleSignupInput}
                 required
             />
             <input
                 type='email'
-                placeholder='email'
+                placeholder='Enter your Email'
                 name='email'
                 value={signupData.email}
                 onChange={handleSignupInput}
