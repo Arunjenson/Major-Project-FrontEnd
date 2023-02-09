@@ -39,6 +39,16 @@
     background-color: #3E8E41;
 }
 
+
+
+
+.form-error {
+    font-size: 12px;
+    margin-top: -1.2rem;
+    color: red;
+    margin-right: 7rem;
+}
+
 /* .app {
     display: flex;
     justify-content: center;
