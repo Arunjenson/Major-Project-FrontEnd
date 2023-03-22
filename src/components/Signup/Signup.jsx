@@ -1,8 +1,9 @@
 import React from 'react'
-import './Signup.css'
-
+import './Signup.scss'
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
 import { signUpSchema } from '../../schemas';
+import axios from 'axios';
 
 
 
@@ -13,16 +14,55 @@ const initialValues = {
     password: ''
 
 }
+
 const Signup = () => {
+    const navigate = useNavigate();
 
     const { values, errors, touched, handleBlur, handleChange, handleSubmit } = useFormik({
         initialValues: initialValues,
         validationSchema: signUpSchema,
-        onSubmit: (values) => {
-            console.log(values);
+        onSubmit: async (values) => {
+            const { name, phone, email, password } = values;
+            // console.log(name);
+            // const res = await fetch('/api/adduser', {
+            //     method: "POST",
+            //     headers: {
+            //         "Content-Type": "application/json"
+            //     },
+            //     body: JSON.stringify({
+            //         name, phone, password
+            //     })
+            // });
+
+            const res = await axios.post('https://localhost:5000/api/submit', { name, phone, password });
+            console.log(res.data);
+
+
+
+            const data = await res.json();
+
+            if (data.status === 422 || !data) {
+                window.alert("Invalid registration");
+                console.log("invlaid registration ");
+            }
+            else {
+                window.alert("Registration Successfull");
+                console.log("valid registratin");
+
+                navigate("/login")
+            }
+
         },
     });
 
+
+    // const registerUser = async (e, values) => {
+    //     // e.preventDefault();
+    //     console.log(values);
+    //     const { name, phone, email, password } = values;
+
+
+    // }
 
 
     return (
