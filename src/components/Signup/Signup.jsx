@@ -22,31 +22,16 @@ const Signup = () => {
         initialValues: initialValues,
         validationSchema: signUpSchema,
         onSubmit: async (values) => {
-            const { name, phone, email, password } = values;
-            // console.log(name);
-            // const res = await fetch('/api/adduser', {
-            //     method: "POST",
-            //     headers: {
-            //         "Content-Type": "application/json"
-            //     },
-            //     body: JSON.stringify({
-            //         name, phone, password
-            //     })
-            // });
-
-            const res = await axios.post('https://localhost:5000/api/submit', { name, phone, password });
+            const { name, phone, password } = values;
+            const res = await axios.post('http://127.0.0.1:4000/api/adduser', { name, phone, password });
             console.log(res.data);
+            console.log(res.status)
 
-
-
-            const data = await res.json();
-
-            if (data.status === 422 || !data) {
+            if (res.status === 422 || !res) {
                 window.alert("Invalid registration");
                 console.log("invlaid registration ");
             }
             else {
-                window.alert("Registration Successfull");
                 console.log("valid registratin");
 
                 navigate("/login")
@@ -54,16 +39,6 @@ const Signup = () => {
 
         },
     });
-
-
-    // const registerUser = async (e, values) => {
-    //     // e.preventDefault();
-    //     console.log(values);
-    //     const { name, phone, email, password } = values;
-
-
-    // }
-
 
     return (
         <form className='signup-form' onSubmit={handleSubmit}>
