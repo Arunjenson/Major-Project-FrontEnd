@@ -23,16 +23,16 @@ const Signup = () => {
         validationSchema: signUpSchema,
         onSubmit: async (values) => {
             const { name, phone, password } = values;
-            const res = await axios.post('http://127.0.0.1:4000/api/adduser', { name, phone, password });
-            console.log(res.data);
+            const res = await axios.post('http://127.0.0.1:5000/api/adduser', { name, phone, password });
+            console.log(res.config.data);
             console.log(res.status)
 
-            if (res.status === 422 || !res) {
-                window.alert("Invalid registration");
-                console.log("invlaid registration ");
+            if (res.status === 400 || !res) {
+                window.alert("Invalid Signin");
+                console.log("invlaid Signin ");
             }
             else {
-                console.log("valid registratin");
+                console.log(res.data.data);
 
                 navigate("/login")
             }
