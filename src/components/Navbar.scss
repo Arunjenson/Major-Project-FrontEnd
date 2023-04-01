@@ -1,0 +1,56 @@
+@import '../scss/common';
+
+.button {
+    border-radius: 5px;
+    max-width: 120px;
+    text-align: center;
+    transition: 0.3s ease-in-out;
+
+    @include max(992) {
+        margin-block: 7px;
+    }
+
+    &-primary {
+        background-color: #4945FF;
+        border: 2px solid #4945FF;
+        color: white;
+
+        &:hover {
+            background-color: transparent;
+            color: black !important;
+            transform: scale(110%);
+        }
+    }
+
+    &-outline {
+        border: 2px solid #4945FF;
+
+        &:hover {
+            background-color: #4945FF;
+            color: white !important;
+            transform: scale(110%);
+        }
+    }
+}
+
+.navbar {
+    padding-top: .75rem;
+    margin-bottom: 1rem;
+
+    .nav-item {
+
+        @include max(992) {
+            padding-block: 7px;
+        }
+
+        .nav-link {
+            font-size: 16px;
+            line-height: 1;
+            font-weight: 500;
+
+            &:hover {
+                color: #4945FF;
+            }
+        }
+    }
+}
