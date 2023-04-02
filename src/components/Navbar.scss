@@ -4,7 +4,9 @@
     border-radius: 5px;
     max-width: 120px;
     text-align: center;
+    font-weight: 500;
     transition: 0.3s ease-in-out;
+    box-shadow: 10px 10px 14px rgba(26, 26, 67, .1);
 
     @include max(992) {
         margin-block: 7px;
@@ -13,7 +15,7 @@
     &-primary {
         background-color: #4945FF;
         border: 2px solid #4945FF;
-        color: white;
+        color: white !important;
 
         &:hover {
             background-color: transparent;
@@ -24,6 +26,7 @@
 
     &-outline {
         border: 2px solid #4945FF;
+        color: black !important;
 
         &:hover {
             background-color: #4945FF;
@@ -44,7 +47,7 @@
         }
 
         .nav-link {
-            font-size: 16px;
+            font-size: 17px;
             line-height: 1;
             font-weight: 500;
 

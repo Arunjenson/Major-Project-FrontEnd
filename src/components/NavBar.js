@@ -22,7 +22,7 @@ const NavBar = () => {
                                 </a>
                                 <ul className="dropdown-menu px-2">
                                     <li><a className="dropdown-item" href="/">Crop Recommendation</a></li>
-                                    <li><a className="dropdown-item" href="/">fertilizer Recommendation</a></li>
+                                    <li><a className="dropdown-item" href="/">Fertilizer Recommendation</a></li>
                                 </ul>
                             </li>
                             <li className="nav-item dropdown px-2 ml-2">
