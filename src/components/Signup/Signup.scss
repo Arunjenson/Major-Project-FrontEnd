@@ -1,16 +1,19 @@
-.signup-form,
-.login-form {
+@import '../../scss/common';
+
+.signup-form{
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 300px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
+    width: 320px;
+    margin: 2rem auto 1rem;
+    padding:15px;
     border-radius: 5px;
-    box-shadow: 0px 0px 10px 0px #ccc;
+    box-shadow: 1px 1px 19px 1px #ccc;
 
-
+    @include max(768){
+        margin-inline: 0;
+        width: 100%;
+    }
     input {
         width: 100%;
         padding: 10px;
@@ -19,28 +22,55 @@
         border: 1px solid #ccc;
         border-radius: 5px;
     }
+    h4{
+        margin-bottom: 1.25rem;
+        font-weight: 400;
+    }
 
     button {
         width: 100%;
         padding: 10px;
-        margin-top: 20px;
         font-size: 16px;
-        background-color: #4CAF50;
+        font-weight: 500;
+        background-color: $primary-color;
         color: #fff;
         border: none;
         border-radius: 5px;
         cursor: pointer;
-
-
+        border:2px solid $primary-color;
         &:hover {
-            background-color: #3E8E41;
+            background-color: white;
+            color:black !important;
+            
+        }   
+    }
+    .form-error {
+        font-size: 12px;
+        margin-top: -1.2rem;
+        color: red;
+    }
+    p{
+        font-size: 12px;
+        font-weight: 500;
+        margin-top: 1rem;
+        span{
+            color: $primary-color;
+            font-weight: 600;
         }
     }
 }
-
-.form-error {
-    font-size: 12px;
-    margin-top: -1.2rem;
-    color: red;
-    margin-right: 7rem;
+.login-link{
+    margin-block: .25rem;
+    column-gap: 10px;
+    display: flex;
+    justify-content: center;
+    p{
+        font-weight: 500;
+        font-size: 16px;
+    }
+    .link{
+        font-weight: 600;
+        text-decoration: none;
+    }
 }
+

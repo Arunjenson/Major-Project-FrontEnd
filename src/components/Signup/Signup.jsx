@@ -1,6 +1,6 @@
 import React from 'react'
 import './Signup.scss'
-import { NavLink, useNavigate } from 'react-router-dom';
+import {useNavigate ,Link } from 'react-router-dom';
 import { useFormik } from 'formik';
 import { signUpSchema } from '../../schemas';
 import axios from 'axios';
@@ -41,7 +41,9 @@ const Signup = () => {
     });
 
     return (
+        <>
         <form className='signup-form' onSubmit={handleSubmit}>
+            <h4>Join FarmIT</h4>
             <input
                 type='text'
                 placeholder='Enter your name'
@@ -81,8 +83,16 @@ const Signup = () => {
             />
             {errors.password && touched.password ? (<p className='form-error'>{errors.password}</p>) : null}
 
-            <button type='submit'>Sign Up</button>
+            <button type='submit'>Create Account</button>
+            <p>By signing up, you are agreeing to the <span>Terms and Policy</span> of FarmIT</p>
         </form>
+        <div className='login-link'>
+            <p>Got an Account?</p>
+            <Link className='link' to='/login'> Log in
+            </Link>
+        </div>
+
+        </>
     );
 }
 

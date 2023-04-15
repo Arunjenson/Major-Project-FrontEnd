@@ -13,8 +13,8 @@
     }
 
     &-primary {
-        background-color: #4945FF;
-        border: 2px solid #4945FF;
+        background-color: $primary-color;
+        border: 2px solid $primary-color;
         color: white !important;
 
         &:hover {
@@ -25,11 +25,11 @@
     }
 
     &-outline {
-        border: 2px solid #4945FF;
+        border: 2px solid $primary-color;
         color: black !important;
 
         &:hover {
-            background-color: #4945FF;
+            background-color: $primary-color;
             color: white !important;
             transform: scale(110%);
         }
@@ -52,7 +52,7 @@
             font-weight: 500;
 
             &:hover {
-                color: #4945FF;
+                color: $primary-color;
             }
         }
     }

@@ -3,7 +3,7 @@ import { useFormik } from 'formik';
 import './Login.scss'
 import { LoginSchema } from '../../schemas';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate ,Link} from 'react-router-dom';
 
 
 const initialValues = {
@@ -13,8 +13,6 @@ const initialValues = {
 }
 const Login = () => {
     const navigate = useNavigate();
-
-
     const { values, errors, touched, handleBlur, handleChange, handleSubmit } = useFormik({
         initialValues: initialValues,
         validationSchema: LoginSchema,
@@ -30,17 +28,18 @@ const Login = () => {
             }
             else {
                 console.log("valid registratin");
-
                 navigate("/")
             }
 
         },
     });
     return (
+        <>
         <form className='login-form' onSubmit={handleSubmit}>
+            <h4>Login</h4>
             <input
                 type='number'
-                placeholder='Enter your Phone Number'
+                placeholder='Registered number'
                 name='phone'
                 value={values.phone}
                 onChange={handleChange}
@@ -57,9 +56,13 @@ const Login = () => {
                 onBlur={handleBlur}
             />
             {errors.password && touched.password ? (<p className='form-error'>{errors.password}</p>) : null}
-
             <button type='submit'>Login</button>
         </form>
+        <div className="signUp-Link">
+            <p>New to Farm IT?</p>
+            <Link className='link' to="/signup">Create an account</Link>
+        </div>
+    </>
     );
 };
 
